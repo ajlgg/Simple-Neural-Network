@@ -26,7 +26,8 @@ class Linear:
         """dout: (batch, out_dim) -> returns dx: (batch, in_dim)
         Fills self.dW, self.db."""
         # TODO: compute grads wrt W, b, and return dx
-        self.dw = dout.T @ self.x
+
+        self.dw = np.matmul(dout.T, self.x)
         self.db = np.sum(dout, axis=0)
         dx = dout @ self.W
         return dx
